@@ -1,4 +1,3 @@
-const { builtinModules } = require('module')
 const request = require('request')
 
 const forecast = (latitude, longitude, callback) => {
@@ -10,7 +9,7 @@ const forecast = (latitude, longitude, callback) => {
         } else if (body.error) {
             callback('unable to find location', undefined)
         } else {
-            callback(undefined, body.current.weather_descriptions[0] + '. It is currently ' + body.current.temperature + ' degrees out. It feels like ' + body.current.feelslike + ' degrees out')
+            callback(undefined, body.current.weather_descriptions[0] + '. It is currently ' + body.current.temperature + ' degrees out. It feels like ' + body.current.feelslike + ' degrees out. The wind is ' + body.current.wind_speed + ' from the ' + body.current.wind_dir)
         }
     })
     
